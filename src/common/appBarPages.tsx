@@ -12,7 +12,9 @@ const appBarPages: MenuProps['items'] = [
     key: 'dishes'
   },
   {
-    label: <AppBarMenuItem label='社区' route='community' svg={CommunityIcon} />,
+    label: (
+      <AppBarMenuItem label='社区' route='community' svg={CommunityIcon} />
+    ),
     key: 'community'
   },
   {

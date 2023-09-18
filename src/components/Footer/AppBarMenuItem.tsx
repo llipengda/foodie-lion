@@ -3,6 +3,7 @@ import Icon, { IconComponentProps } from '@ant-design/icons/lib/components/Icon'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Col, Row, Typography } from 'antd'
 import { useAppSelector } from '../../redux/hooks'
+import { IconActiveFilter, darkThemeIconFilter, lightThemeIconFilter } from '../../common/constants'
 
 interface AppBarMenuItemProps {
   label: string
@@ -32,10 +33,10 @@ export default function AppBarMenuItem({
             style={{
               fontSize: '34px',
               filter: isActive
-                ? 'invert(87%) sepia(9%) saturate(770%) hue-rotate(76deg) brightness(87%) contrast(90%)'
+                ? IconActiveFilter
                 : isDark
-                ? 'invert(100%) sepia(0%) saturate(3358%) hue-rotate(114deg) brightness(93%) contrast(85%)'
-                : 'none',
+                ? darkThemeIconFilter
+                : lightThemeIconFilter,
               transition: 'all 0.6s ease-out'
             }}
           />

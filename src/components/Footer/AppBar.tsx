@@ -9,7 +9,14 @@ export default function AppBar() {
 
   return (
     <Footer
-      style={{ padding: '10px', display: 'flex', justifyContent: 'center', position:'sticky', bottom: 0, zIndex: 1 }}
+      style={{
+        padding: '10px',
+        display: 'flex',
+        justifyContent: 'center',
+        position: 'sticky',
+        bottom: 0,
+        zIndex: 1
+      }}
     >
       <Menu
         mode='horizontal'
@@ -17,7 +24,7 @@ export default function AppBar() {
           textAlign: 'center',
           backgroundColor: 'inherit',
           width: '100%',
-          justifyContent: 'center',
+          justifyContent: 'center'
         }}
         items={appBarPages}
         selectedKeys={[location.pathname.split('/')[1]]}
