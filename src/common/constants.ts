@@ -10,3 +10,4 @@ export const darkThemeIconFilter =
 export const lightThemeIconFilter = 'none'
 export const IconActiveFilter =
   'invert(87%) sepia(9%) saturate(770%) hue-rotate(76deg) brightness(87%) contrast(90%)'
+export const githubUrl = 'https://github.com/llipengda/foodie-lion'
