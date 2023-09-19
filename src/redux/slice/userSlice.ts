@@ -15,16 +15,19 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     token: initToken,
+    needLogin: true,
     userInfo: initUserInfo
   },
   reducers: {
     login: (state, action: PayloadAction<LoginResult>) => {
       state.token = action.payload.token
       state.userInfo = action.payload.userInfo
+      state.needLogin = false
     },
     logout: state => {
       state.token = initToken
       state.userInfo = initUserInfo
+      state.needLogin = true
     }
   }
 })

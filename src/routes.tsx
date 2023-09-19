@@ -6,7 +6,6 @@ const Dishes = lazy(() => import('./pages/Dishes'))
 const Community = lazy(() => import('./pages/Community'))
 const Record = lazy(() => import('./pages/Record'))
 const Me = lazy(() => import('./pages/Me'))
-const Login = lazy(() => import('./pages/Login'))
 
 const routes: RouteObject[] = [
   { path: 'home', element: <Home /> },
@@ -14,7 +13,6 @@ const routes: RouteObject[] = [
   { path: 'community', element: <Community /> },
   { path: 'record', element: <Record /> },
   { path: 'me', element: <Me /> },
-  { path: 'login', element: <Login /> },
   { path: '/', element: <Navigate to='/home' /> }
 ]
 

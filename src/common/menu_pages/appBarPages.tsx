@@ -1,10 +1,10 @@
 import { MenuProps } from 'antd'
-import AppBarMenuItem from '../components/Footer/AppBarMenuItem'
-import { ReactComponent as HomeIcon } from '../assets/images/icons/home.svg'
-import { ReactComponent as DishesIcon } from '../assets/images/icons/dishes.svg'
-import { ReactComponent as CommunityIcon } from '../assets/images/icons/community.svg'
-import { ReactComponent as RecordIcon } from '../assets/images/icons/record.svg'
-import { ReactComponent as MeIcon } from '../assets/images/icons/me.svg'
+import AppBarMenuItem from '../../components/Footer/AppBarMenuItem'
+import { ReactComponent as HomeIcon } from '../../assets/images/icons/home.svg'
+import { ReactComponent as DishesIcon } from '../../assets/images/icons/dishes.svg'
+import { ReactComponent as CommunityIcon } from '../../assets/images/icons/community.svg'
+import { ReactComponent as RecordIcon } from '../../assets/images/icons/record.svg'
+import { ReactComponent as MeIcon } from '../../assets/images/icons/me.svg'
 
 const appBarPages: MenuProps['items'] = [
   {

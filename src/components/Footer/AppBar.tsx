@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu } from 'antd'
-import appBarPages from '../../common/appBarPages'
+import appBarPages from '../../common/menu_pages/appBarPages'
 import { Footer } from 'antd/es/layout/layout'
 import { useLocation } from 'react-router-dom'
 

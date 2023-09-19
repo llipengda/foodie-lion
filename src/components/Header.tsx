@@ -10,7 +10,7 @@ import {
   Tooltip,
   Typography
 } from 'antd'
-import pages from '../common/pages'
+import pages from '../common/menu_pages/pages'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { toggleDarkMode } from '../redux/slice/themeSlice'
 import { Link, useLocation } from 'react-router-dom'
