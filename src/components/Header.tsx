@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header as AntdHeader } from 'antd/es/layout/layout'
 import {
   Avatar,
@@ -17,11 +17,14 @@ import { Link, useLocation } from 'react-router-dom'
 import { useResponsive } from 'antd-style'
 import { GithubOutlined } from '@ant-design/icons'
 import { githubUrl } from '../common/constants'
+import { setOpenLogin } from '../redux/slice/loginSlice'
+import { logout } from '../redux/slice/userSlice'
 
 const { Title } = Typography
 
 export default function Header() {
   const isDark = useAppSelector(state => state.theme.darkMode)
+  const needLogin = useAppSelector(state => state.user.needLogin)
 
   const dispatch = useAppDispatch()
 
@@ -29,11 +32,19 @@ export default function Header() {
 
   const responsive = useResponsive()
 
-  const [themeIcon, setThemeIcon] = React.useState('🌒')
+  const [themeIcon, setThemeIcon] = useState(isDark ? '☀️' : '🌒')
 
   const handleChangeTheme = () => {
     dispatch(toggleDarkMode())
     setThemeIcon(isDark ? '🌒' : '☀️')
+  }
+
+  const onClickLogin = () => {
+    dispatch(setOpenLogin(true))
+  }
+
+  const onClickLogout = () => {
+    dispatch(logout())
   }
 
   return (
@@ -65,7 +76,7 @@ export default function Header() {
             />
           </Link>
         </Col>
-        <Col md={9} sm={11} xs={15}>
+        <Col md={7} sm={8} xs={12}>
           <Link to='/'>
             <Title
               level={4}
@@ -80,7 +91,7 @@ export default function Header() {
             </Title>
           </Link>
         </Col>
-        <Col md={6} xs={3}>
+        <Col md={6} xs={0}>
           <Menu
             mode='horizontal'
             style={{ backgroundColor: 'inherit' }}
@@ -112,6 +123,17 @@ export default function Header() {
               </Button>
             </Tooltip>
           </Space>
+        </Col>
+        <Col xs={5} md={2}>
+          {needLogin ? (
+            <Button type='primary' onClick={onClickLogin}>
+              登录
+            </Button>
+          ) : (
+            <Button type='primary' onClick={onClickLogout}>
+              注销
+            </Button>
+          )}
         </Col>
       </Row>
     </AntdHeader>

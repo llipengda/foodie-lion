@@ -1,3 +1,4 @@
+export const baseUrl = 'https://pdli.eastasia.cloudapp.azure.com'
 export const primaryColor = '#a0c8a5'
 export const darkThemeHeaderColor = '#001529'
 export const darkThemeFooterColor = '#001529'

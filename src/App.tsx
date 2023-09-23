@@ -8,7 +8,10 @@ import Header from './components/Header.tsx'
 import Footer from './components/Footer.tsx'
 import Main from './components/Main.tsx'
 import generateTheme from './utils/generateTheme.ts'
+import { login } from './redux/slice/userSlice.ts'
+import API from './api'
 import './App.css'
+import UserInfo from './types/UserInfo.ts'
 
 export default function App() {
   const { browserPrefers } = useThemeMode()
@@ -16,10 +19,34 @@ export default function App() {
   const isDark = useAppSelector(state => state.theme.darkMode)
 
   const dispatch = useAppDispatch()
+  const needLogin = useAppSelector(state => state.user.needLogin)
 
   useEffect(() => {
     dispatch(setDarkMode(browserPrefers === 'dark'))
-  },[browserPrefers, dispatch])
+  }, [browserPrefers, dispatch])
+
+  useEffect(() => {
+    if (
+      localStorage.getItem('token') &&
+      localStorage.getItem('userId') &&
+      needLogin
+    ) {
+      API.User.getUserGetByIdId({
+        id: localStorage.getItem('userId') as string
+      }).then(data => {
+        if (data.code === 200) {
+          dispatch(
+            login({
+              token: localStorage.getItem('token') as string,
+              userInfo: {
+                ...(data.data as UserInfo)
+              }
+            })
+          )
+        }
+      })
+    }
+  }, [dispatch, needLogin])
 
   return (
     <ConfigProvider locale={zhCN} theme={generateTheme(isDark)}>

@@ -1,6 +1,1 @@
-export default interface UserInfo {
-  id: string
-  name: string
-  signature: string
-  avatar: string
-}
+export default interface UserInfo extends API.UserOutDto {}

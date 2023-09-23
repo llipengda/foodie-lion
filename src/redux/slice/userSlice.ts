@@ -7,8 +7,10 @@ const initToken: string = ''
 const initUserInfo: UserInfo = {
   id: '',
   name: '',
+  email: '',
   signature: '',
-  avatar: ''
+  avatar: '',
+  role: 1
 }
 
 const userSlice = createSlice({
@@ -23,11 +25,15 @@ const userSlice = createSlice({
       state.token = action.payload.token
       state.userInfo = action.payload.userInfo
       state.needLogin = false
+      localStorage.setItem('token', state.token)
+      localStorage.setItem('userId', state.userInfo.id)
     },
     logout: state => {
       state.token = initToken
       state.userInfo = initUserInfo
       state.needLogin = true
+      localStorage.removeItem('token')
+      localStorage.removeItem('userId')
     }
   }
 })

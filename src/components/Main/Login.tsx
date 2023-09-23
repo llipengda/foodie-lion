@@ -7,11 +7,14 @@ import loginPages from '../../common/menu_pages/loginPages'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 import ChangePasswordForm from './ChangePasswordForm'
+import { useResponsive } from 'antd-style'
 
 export default function Login() {
   const openLogin = useAppSelector(state => state.login.openLogin)
 
   const dispatch = useDispatch()
+
+  const responsive = useResponsive()
 
   const [selected, setSelected] = useState('login')
 
@@ -35,7 +38,7 @@ export default function Login() {
       centered
       footer={null}
     >
-      <Col span={24} offset={7}>
+      <Col span={24} offset={responsive.xs ? 4 : 7}>
         <Menu
           mode='horizontal'
           items={loginPages}
@@ -51,7 +54,7 @@ export default function Login() {
       {selected === 'register' ? (
         <RegisterForm onCancel={handleCancel} />
       ) : selected === 'changePassword' ? (
-        <ChangePasswordForm onCancel={handleCancel} />
+        <ChangePasswordForm />
       ) : (
         <LoginForm onCancel={handleCancel} onSwitch={switchToChangePassword} />
       )}
