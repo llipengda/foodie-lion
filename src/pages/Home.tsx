@@ -1,5 +1,9 @@
 import React from 'react'
 
 export default function Home() {
-  return <div>home</div>
+  return (
+    <>
+      写不完了
+    </>
+  )
 }

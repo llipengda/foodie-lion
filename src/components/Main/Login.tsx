@@ -4,10 +4,10 @@ import { useAppSelector } from '../../redux/hooks'
 import { useDispatch } from 'react-redux'
 import { setOpenLogin } from '../../redux/slice/loginSlice'
 import loginPages from '../../common/menu_pages/loginPages'
+import { useResponsive } from 'antd-style'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 import ChangePasswordForm from './ChangePasswordForm'
-import { useResponsive } from 'antd-style'
 
 export default function Login() {
   const openLogin = useAppSelector(state => state.login.openLogin)

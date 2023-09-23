@@ -11,6 +11,10 @@ declare namespace API {
     id: string
   }
 
+  type deleteImageDeleteHomeImageIdParams = {
+    id: string
+  }
+
   type deleteNotificationDeleteIdParams = {
     id: string
   }
@@ -88,6 +92,7 @@ declare namespace API {
     | 40012
     | 40013
     | 40014
+    | 40015
 
   type getDishGetAllParams = {
     order?: string
@@ -166,6 +171,26 @@ declare namespace API {
     error?: string
   }
 
+  type HomeImage = {
+    id?: string
+    url: string
+  }
+
+  type HomeImageListResult = {
+    code?: ErrorCode
+    /** The data of the request result */
+    data?: HomeImage[]
+    /** The error message of the request result if any error happend */
+    error?: string
+  }
+
+  type HomeImageResult = {
+    code?: ErrorCode
+    data?: HomeImage
+    /** The error message of the request result if any error happend */
+    error?: string
+  }
+
   type Int32Result = {
     code?: ErrorCode
     /** The data of the request result */
@@ -238,6 +263,10 @@ declare namespace API {
   type postEmailCodeVerifyEmailCodeParams = {
     email: string
     code: string
+  }
+
+  type postImageAddHomeImageParams = {
+    url: string
   }
 
   type PostListResult = {
